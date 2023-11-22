@@ -3,29 +3,27 @@
 import { useResizeDetector } from "react-resize-detector";
 
 export default function HomePage() {
-  const { width, height, ref } = useResizeDetector();
+	const { ref, width, height } = useResizeDetector();
 
-  return (
-    <main
-      style={{
-        display: "flex",
-      }}
-    >
-      <div
-        style={{
-          width: `${width}px`,
-          height: `${height}px`,
-          background: "green",
-        }}
-      ></div>
-      <div
-        style={{
-          width: "256px",
-          height: "256px",
-          background: "red",
-        }}
-        ref={ref}
-      ></div>
-    </main>
-  );
+	return (
+		<main
+			style={{
+				display: "flex",
+			}}
+		>
+			<div>
+				<p ref={ref} style={{ width: "25rem" }}>
+					Root RRD:{" "}
+					{JSON.stringify(
+						{
+							height,
+							width,
+						},
+						null,
+						2
+					)}
+				</p>
+			</div>
+		</main>
+	);
 }
